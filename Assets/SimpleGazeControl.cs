@@ -9,7 +9,7 @@ public class SimpleGazeControl : MonoBehaviour {
     GameObject currentLocation;
 
     public float MAX_GAZE_TIMER = 5f;
-    public float lerpSpeed = 1f;
+    public float lerpSpeed = 1.0f;
 	// Use this for initialization
 	void Start () {
         gazeTimer = MAX_GAZE_TIMER;
@@ -23,38 +23,26 @@ public class SimpleGazeControl : MonoBehaviour {
         Ray ray = new Ray(head.transform.position, fwd);
         RaycastHit hitInfo;
         
-        if (Physics.Raycast(ray, out hitInfo, 50f))
+        if (Physics.Raycast(ray, out hitInfo, 5000f))
         {
-            print("There is something in front of the object!" + hitInfo.collider.name);
+            Debug.Log("step 1");
+
             if(currentLocation == null || hitInfo.collider.gameObject != currentLocation)
             {
+                Debug.Log("step 2");
                 if (hitInfo.collider.tag == "GazeTeleport")
                 {
-                    print("timer is: " + gazeTimer);
-                    gazeTimer -= Time.fixedDeltaTime;
-                    if (gazeTimer < 0f)
+                    Debug.Log("step 3");
+                    if (gazeTimer > 0f)//david changed
                     {
-                        if(currentLocation != null)
-                        {
-                            foreach (Transform t in currentLocation.transform)
-                            {
-                                if (t.gameObject.tag == "path")
-                                    t.gameObject.SetActive(false);
-                            }
-                        }
+                        
                         currentLocation = hitInfo.collider.gameObject;
-                        foreach (Transform t in currentLocation.transform)
-                        {
-                            if (t.gameObject.tag == "path")
-                                t.gameObject.SetActive(true);
-                        }
-                        print("START TELEPORTING!");
                         //transform.position = hitInfo.collider.transform.position - head.transform.localPosition;
                         StartCoroutine(MoveTo(hitInfo.collider.transform.position - head.transform.localPosition));
                         gazeTimer = MAX_GAZE_TIMER;
-
                     }
                 }
+                
                 else
                 {
                     gazeTimer = MAX_GAZE_TIMER;
