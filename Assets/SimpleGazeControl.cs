@@ -7,7 +7,7 @@ public class SimpleGazeControl : MonoBehaviour {
     public float offsetLandingZPosition;
     float gazeTimer;
     GameObject currentLocation;
-
+    public GameObject objectBeingLookAt;
     public AudioSource sfx_source;
 
     public float MAX_GAZE_TIMER = 5f;
@@ -26,12 +26,13 @@ public class SimpleGazeControl : MonoBehaviour {
         Ray ray = new Ray(head.transform.position, fwd);
         RaycastHit hitInfo;
         
-        if (Physics.Raycast(ray, out hitInfo, 5000f))
+		if (Physics.Raycast(ray, out hitInfo, 10f))
         {
             Debug.Log("step 1");
 
             if(currentLocation == null || hitInfo.collider.gameObject != currentLocation)
             {
+                objectBeingLookAt = hitInfo.collider.gameObject;
                 Debug.Log("step 2");
                 if (hitInfo.collider.tag == "GazeTeleport")
                 {

@@ -55,6 +55,11 @@ namespace UnityGLTF
                     );
             }
 
+			//MENTOR ALERT!
+			//TODO: this may be in violation of the rules because you are editing a script you did not right.  REMOVE
+			EachHand e = gameObject.AddComponent<EachHand> ();
+			e.gazeControl = GameObject.Find ("MixedRealityCameraParent").GetComponent<SimpleGazeControl> ();
+
             loader.SetShaderForMaterialType(GLTFSceneImporter.MaterialType.PbrMetallicRoughness, GLTFStandard);
             loader.SetShaderForMaterialType(GLTFSceneImporter.MaterialType.KHR_materials_pbrSpecularGlossiness, GLTFStandardSpecular);
             loader.SetShaderForMaterialType(GLTFSceneImporter.MaterialType.CommonConstant, GLTFConstant);
