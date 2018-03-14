@@ -26,7 +26,7 @@ public class SimpleGazeControl : MonoBehaviour {
         if (Physics.Raycast(ray, out hitInfo, 50f))
         {
             print("There is something in front of the object!" + hitInfo.collider.name);
-            if(currentLocation != null && hitInfo.collider.gameObject != currentLocation)
+            if(currentLocation == null || hitInfo.collider.gameObject != currentLocation)
             {
                 if (hitInfo.collider.tag == "GazeTeleport")
                 {
@@ -34,11 +34,25 @@ public class SimpleGazeControl : MonoBehaviour {
                     gazeTimer -= Time.fixedDeltaTime;
                     if (gazeTimer < 0f)
                     {
+                        if(currentLocation != null)
+                        {
+                            foreach (Transform t in currentLocation.transform)
+                            {
+                                if (t.gameObject.tag == "path")
+                                    t.gameObject.SetActive(false);
+                            }
+                        }
+                        currentLocation = hitInfo.collider.gameObject;
+                        foreach (Transform t in currentLocation.transform)
+                        {
+                            if (t.gameObject.tag == "path")
+                                t.gameObject.SetActive(true);
+                        }
                         print("START TELEPORTING!");
                         //transform.position = hitInfo.collider.transform.position - head.transform.localPosition;
                         StartCoroutine(MoveTo(hitInfo.collider.transform.position - head.transform.localPosition));
                         gazeTimer = MAX_GAZE_TIMER;
-                        currentLocation = hitInfo.collider.gameObject;
+
                     }
                 }
                 else
@@ -53,6 +67,8 @@ public class SimpleGazeControl : MonoBehaviour {
 
     IEnumerator MoveTo(Vector3 target)
     {
+
+        yield return new WaitForSeconds(.5f);
         Vector3 startPostion = transform.position;
         float i = 0f;
         while(i < 1f)
