@@ -9,7 +9,7 @@ public class SimpleGazeControl : MonoBehaviour {
     GameObject currentLocation;
 
     public float MAX_GAZE_TIMER = 5f;
-    public float lerpSpeed = 1f;
+    public float lerpSpeed = 1.0f;
 	// Use this for initialization
 	void Start () {
         gazeTimer = MAX_GAZE_TIMER;
@@ -23,24 +23,26 @@ public class SimpleGazeControl : MonoBehaviour {
         Ray ray = new Ray(head.transform.position, fwd);
         RaycastHit hitInfo;
         
-        if (Physics.Raycast(ray, out hitInfo, 50f))
+        if (Physics.Raycast(ray, out hitInfo, 5000f))
         {
-            print("There is something in front of the object!" + hitInfo.collider.name);
-            if(currentLocation != null && hitInfo.collider.gameObject != currentLocation)
+            Debug.Log("step 1");
+
+            if(currentLocation == null || hitInfo.collider.gameObject != currentLocation)
             {
+                Debug.Log("step 2");
                 if (hitInfo.collider.tag == "GazeTeleport")
                 {
-                    print("timer is: " + gazeTimer);
-                    gazeTimer -= Time.fixedDeltaTime;
-                    if (gazeTimer < 0f)
+                    Debug.Log("step 3");
+                    if (gazeTimer > 0f)//david changed
                     {
-                        print("START TELEPORTING!");
+                        
+                        currentLocation = hitInfo.collider.gameObject;
                         //transform.position = hitInfo.collider.transform.position - head.transform.localPosition;
                         StartCoroutine(MoveTo(hitInfo.collider.transform.position - head.transform.localPosition));
                         gazeTimer = MAX_GAZE_TIMER;
-                        currentLocation = hitInfo.collider.gameObject;
                     }
                 }
+                
                 else
                 {
                     gazeTimer = MAX_GAZE_TIMER;
@@ -53,6 +55,8 @@ public class SimpleGazeControl : MonoBehaviour {
 
     IEnumerator MoveTo(Vector3 target)
     {
+
+        yield return new WaitForSeconds(.5f);
         Vector3 startPostion = transform.position;
         float i = 0f;
         while(i < 1f)
