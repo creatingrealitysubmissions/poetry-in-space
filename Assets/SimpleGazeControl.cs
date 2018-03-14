@@ -8,10 +8,13 @@ public class SimpleGazeControl : MonoBehaviour {
     float gazeTimer;
     GameObject currentLocation;
 
+    public AudioSource sfx_source;
+
     public float MAX_GAZE_TIMER = 5f;
     public float lerpSpeed = 1.0f;
 	// Use this for initialization
 	void Start () {
+        sfx_source = GetComponent<AudioSource>();
         gazeTimer = MAX_GAZE_TIMER;
 	}
 
@@ -35,7 +38,7 @@ public class SimpleGazeControl : MonoBehaviour {
                     Debug.Log("step 3");
                     if (gazeTimer > 0f)//david changed
                     {
-                        
+                        sfx_source.Play();
                         currentLocation = hitInfo.collider.gameObject;
                         //transform.position = hitInfo.collider.transform.position - head.transform.localPosition;
                         StartCoroutine(MoveTo(hitInfo.collider.transform.position - head.transform.localPosition));
