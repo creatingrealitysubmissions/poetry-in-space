@@ -336,8 +336,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1127525123306568}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -3, z: 0}
+  m_LocalScale: {x: 10, y: 1, z: 10}
   m_Children: []
   m_Father: {fileID: 4541142303025740}
   m_RootOrder: 2
@@ -594,12 +594,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SensitivityScale: 3
   UseUnscaledTime: 1
-  axisType: 0
+  axisType: 11
   buttonType: 21
-  InputManagerHorizontalAxisName: CONTROLLER_RIGHT_STICK_HORIZONTAL
-  InputManagerVerticalAxisName: CONTROLLER_RIGHT_STICK_VERTICAL
+  InputManagerHorizontalAxisName: 
+  InputManagerVerticalAxisName: 
   Axis0Destination: 0
-  Axis1Destination: 4
+  Axis1Destination: 2
   Axis2Destination: 6
 --- !u!114 &114059824862712730
 MonoBehaviour:
@@ -624,18 +624,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MouseSupported: 1
-  MouseXYRotationAxisControl: {fileID: 114465015496195000}
-  MouseXYTranslationAxisControl: {fileID: 114225625019075894}
-  MouseXZTranslationAxisControl: {fileID: 114755176645041546}
+  MouseXYRotationAxisControl: {fileID: 0}
+  MouseXYTranslationAxisControl: {fileID: 0}
+  MouseXZTranslationAxisControl: {fileID: 0}
   KeyboardSupported: 1
-  KeyboardXYRotationAxisControl: {fileID: 114828096048444974}
-  KeyboardXZRotationAxisControl: {fileID: 114121188885475510}
-  KeyboardXYTranslationAxisControl: {fileID: 114690106885971528}
-  KeyboardXZTranslationAxisControl: {fileID: 114982334573009450}
+  KeyboardXYRotationAxisControl: {fileID: 0}
+  KeyboardXZRotationAxisControl: {fileID: 0}
+  KeyboardXYTranslationAxisControl: {fileID: 0}
+  KeyboardXZTranslationAxisControl: {fileID: 0}
   JoystickSupported: 0
-  JoystickXYRotationAxisControl: {fileID: 114991520948515094}
-  JoystickXYTranslationAxisControl: {fileID: 114873870855691164}
-  JoystickXZTranslationAxisControl: {fileID: 114029515443702222}
+  JoystickXYRotationAxisControl: {fileID: 0}
+  JoystickXYTranslationAxisControl: {fileID: 0}
+  JoystickXZTranslationAxisControl: {fileID: 0}
 --- !u!114 &114121188885475510
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -647,14 +647,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1b627838df61e64baecc87fee2dec17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SensitivityScale: 1
+  SensitivityScale: 3
   UseUnscaledTime: 1
-  axisType: 7
+  axisType: 11
   buttonType: 21
   InputManagerHorizontalAxisName: 
   InputManagerVerticalAxisName: 
-  Axis0Destination: 5
-  Axis1Destination: 4
+  Axis0Destination: 0
+  Axis1Destination: 2
   Axis2Destination: 6
 --- !u!114 &114129378875773704
 MonoBehaviour:
@@ -668,7 +668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FloorQuad: {fileID: 1520281459093612, guid: 08d25ccfbbc595b4a820c7edd551d095, type: 2}
-  boundaryHeight: 500
+  boundaryHeight: 10
   opaqueTrackingSpaceType: 1
   renderFloor: 1
   renderBoundary: 1
@@ -683,7 +683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1cd1da56c40bf34ba82df9fe22d49cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UseLastLayer: 1
+  UseLastLayer: 0
   TargetSortingLayerName: Default
   renderers: []
 --- !u!114 &114225625019075894
@@ -697,9 +697,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1b627838df61e64baecc87fee2dec17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SensitivityScale: 1
+  SensitivityScale: 3
   UseUnscaledTime: 1
-  axisType: 13
+  axisType: 11
   buttonType: 21
   InputManagerHorizontalAxisName: 
   InputManagerVerticalAxisName: 
@@ -729,10 +729,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1b627838df61e64baecc87fee2dec17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SensitivityScale: 4.5
+  SensitivityScale: 3
   UseUnscaledTime: 1
   axisType: 11
-  buttonType: 1
+  buttonType: 21
   InputManagerHorizontalAxisName: 
   InputManagerVerticalAxisName: 
   Axis0Destination: 0
@@ -752,7 +752,7 @@ MonoBehaviour:
   NearClipPlane_OpaqueDisplay: 0.1
   CameraClearFlags_OpaqueDisplay: 1
   BackgroundColor_OpaqueDisplay: {r: 0, g: 0, b: 0, a: 1}
-  OpaqueQualityLevel: 5
+  OpaqueQualityLevel: 0
   NearClipPlane_TransparentDisplay: 0.85
   CameraClearFlags_TransparentDisplay: 2
   BackgroundColor_TransparentDisplay: {r: 0, g: 0, b: 0, a: 0}
@@ -768,14 +768,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1b627838df61e64baecc87fee2dec17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SensitivityScale: 1
+  SensitivityScale: 3
   UseUnscaledTime: 1
-  axisType: 3
+  axisType: 11
   buttonType: 21
   InputManagerHorizontalAxisName: 
   InputManagerVerticalAxisName: 
-  Axis0Destination: 2
-  Axis1Destination: 6
+  Axis0Destination: 0
+  Axis1Destination: 2
   Axis2Destination: 6
 --- !u!114 &114710303647202208
 MonoBehaviour:
@@ -789,14 +789,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AnimateControllerModel: 1
-  AlwaysUseAlternateLeftModel: 1
-  AlwaysUseAlternateRightModel: 1
-  AlternateLeftController: {fileID: 1745800145629774, guid: 217cbcc3dd09de2418d2df6ccef73ce4,
-    type: 2}
-  AlternateRightController: {fileID: 1745800145629774, guid: 4d7b6568587c37145b128bf3a32179f2,
-    type: 2}
+  AlwaysUseAlternateLeftModel: 0
+  AlwaysUseAlternateRightModel: 0
+  AlternateLeftController: {fileID: 0}
+  AlternateRightController: {fileID: 0}
   TouchpadTouchedOverride: {fileID: 0}
-  GLTFMaterial: {fileID: 2100000, guid: 2ac78523d661e954c83d799f582b22e8, type: 2}
+  GLTFMaterial: {fileID: 0}
 --- !u!114 &114755176645041546
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -810,12 +808,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SensitivityScale: 3
   UseUnscaledTime: 1
-  axisType: 12
-  buttonType: 3
+  axisType: 11
+  buttonType: 21
   InputManagerHorizontalAxisName: 
   InputManagerVerticalAxisName: 
-  Axis0Destination: 4
-  Axis1Destination: 6
+  Axis0Destination: 0
+  Axis1Destination: 2
   Axis2Destination: 6
 --- !u!114 &114812681035175298
 MonoBehaviour:
@@ -842,8 +840,7 @@ MonoBehaviour:
   StayOnTheFloor: 0
   RotationSize: 45
   StrafeAmount: 0.5
-  teleportMarker: {fileID: 1503526479864244, guid: 10d95b99055c6ad40b735cc8b3593745,
-    type: 2}
+  teleportMarker: {fileID: 0}
   useCustomMapping: 0
 --- !u!114 &114828096048444974
 MonoBehaviour:
@@ -856,14 +853,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1b627838df61e64baecc87fee2dec17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SensitivityScale: 1
+  SensitivityScale: 3
   UseUnscaledTime: 1
-  axisType: 6
+  axisType: 11
   buttonType: 21
   InputManagerHorizontalAxisName: 
   InputManagerVerticalAxisName: 
-  Axis0Destination: 2
-  Axis1Destination: 1
+  Axis0Destination: 0
+  Axis1Destination: 2
   Axis2Destination: 6
 --- !u!114 &114873870855691164
 MonoBehaviour:
@@ -878,12 +875,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SensitivityScale: 3
   UseUnscaledTime: 1
-  axisType: 0
+  axisType: 11
   buttonType: 21
-  InputManagerHorizontalAxisName: CONTROLLER_LEFT_TRIGGER
-  InputManagerVerticalAxisName: CONTROLLER_RIGHT_TRIGGER
-  Axis0Destination: 2
-  Axis1Destination: 3
+  InputManagerHorizontalAxisName: 
+  InputManagerVerticalAxisName: 
+  Axis0Destination: 0
+  Axis1Destination: 2
   Axis2Destination: 6
 --- !u!114 &114982334573009450
 MonoBehaviour:
@@ -898,12 +895,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SensitivityScale: 3
   UseUnscaledTime: 1
-  axisType: 0
+  axisType: 11
   buttonType: 21
-  InputManagerHorizontalAxisName: Horizontal
-  InputManagerVerticalAxisName: Vertical
+  InputManagerHorizontalAxisName: 
+  InputManagerVerticalAxisName: 
   Axis0Destination: 0
-  Axis1Destination: 4
+  Axis1Destination: 2
   Axis2Destination: 6
 --- !u!114 &114991520948515094
 MonoBehaviour:
@@ -918,12 +915,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SensitivityScale: 3
   UseUnscaledTime: 1
-  axisType: 0
+  axisType: 11
   buttonType: 21
-  InputManagerHorizontalAxisName: CONTROLLER_LEFT_STICK_HORIZONTAL
-  InputManagerVerticalAxisName: CONTROLLER_LEFT_STICK_VERTICAL
-  Axis0Destination: 2
-  Axis1Destination: 0
+  InputManagerHorizontalAxisName: 
+  InputManagerVerticalAxisName: 
+  Axis0Destination: 0
+  Axis1Destination: 2
   Axis2Destination: 6
 --- !u!124 &124448202808387510
 Behaviour:
