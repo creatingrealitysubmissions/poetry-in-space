@@ -54,7 +54,6 @@ GameObject:
   - component: {fileID: 20770519707920992}
   - component: {fileID: 124448202808387510}
   - component: {fileID: 81867938468442352}
-  - component: {fileID: 114043580947488060}
   - component: {fileID: 114504390558679740}
   m_Layer: 0
   m_Name: MixedRealityCamera
@@ -412,8 +411,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1372541880982678}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.11208891, y: -0.15009682, z: -0.018700643, w: 0.9821188}
+  m_LocalPosition: {x: -0.08590077, y: 0.04911511, z: 0.1323825}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4766909944503646}
@@ -579,9 +578,9 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 16
+  near clip plane: 0.1
+  far clip plane: 50
+  field of view: 101.7589
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -639,7 +638,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1586147040494190}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -647,7 +646,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: facb09b0003896243b48c50481ddf816, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -829,30 +828,6 @@ MonoBehaviour:
   Axis0Destination: 0
   Axis1Destination: 2
   Axis2Destination: 6
---- !u!114 &114043580947488060
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1372541880982678}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cf6ab24363b7a74da25766ea8ba6809, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MouseSupported: 1
-  MouseXYRotationAxisControl: {fileID: 0}
-  MouseXYTranslationAxisControl: {fileID: 0}
-  MouseXZTranslationAxisControl: {fileID: 0}
-  KeyboardSupported: 1
-  KeyboardXYRotationAxisControl: {fileID: 0}
-  KeyboardXZRotationAxisControl: {fileID: 0}
-  KeyboardXYTranslationAxisControl: {fileID: 0}
-  KeyboardXZTranslationAxisControl: {fileID: 0}
-  JoystickSupported: 0
-  JoystickXYRotationAxisControl: {fileID: 0}
-  JoystickXYTranslationAxisControl: {fileID: 0}
-  JoystickXZTranslationAxisControl: {fileID: 0}
 --- !u!114 &114059824862712730
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -877,6 +852,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   head: {fileID: 1372541880982678}
   offsetLandingZPosition: 1
+  sfx_source: {fileID: 82133386066509256}
   MAX_GAZE_TIMER: 0.4
   lerpSpeed: 2.8
 --- !u!114 &114121188885475510
@@ -928,7 +904,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UseLastLayer: 0
   TargetSortingLayerName: Default
-  renderers: []
+  renderers:
+  - {fileID: 23322403167181422}
 --- !u!114 &114225625019075894
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -994,6 +971,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   head: {fileID: 1372541880982678}
   offsetLandingZPosition: 1
+  sfx_source: {fileID: 82133386066509256}
   MAX_GAZE_TIMER: 0.4
   lerpSpeed: 2.8
 --- !u!114 &114504390558679740
@@ -1041,7 +1019,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1493965172262900}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03314f8008ae1ed4fbd45c95a7ed5182, type: 3}
   m_Name: 
@@ -1052,7 +1030,7 @@ MonoBehaviour:
   AlternateLeftController: {fileID: 0}
   AlternateRightController: {fileID: 0}
   TouchpadTouchedOverride: {fileID: 0}
-  GLTFMaterial: {fileID: 0}
+  GLTFMaterial: {fileID: 2100000, guid: 2ac78523d661e954c83d799f582b22e8, type: 2}
 --- !u!114 &114755176645041546
 MonoBehaviour:
   m_ObjectHideFlags: 1
