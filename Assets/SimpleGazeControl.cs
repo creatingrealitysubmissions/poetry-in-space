@@ -13,9 +13,12 @@ public class SimpleGazeControl : MonoBehaviour {
     public float MAX_GAZE_TIMER = 5f;
     public float lerpSpeed = 1.0f;
 	// Use this for initialization
+	public static int wavepointIndex;
+
 	void Start () {
         sfx_source = GetComponent<AudioSource>();
         gazeTimer = MAX_GAZE_TIMER;
+		wavepointIndex = 1;
 	}
 
     void FixedUpdate()
@@ -26,7 +29,7 @@ public class SimpleGazeControl : MonoBehaviour {
         Ray ray = new Ray(head.transform.position, fwd);
         RaycastHit hitInfo;
         
-		if (Physics.Raycast(ray, out hitInfo, 10f))
+		if (Physics.Raycast(ray, out hitInfo, 1000f))
         {
             Debug.Log("step 1");
 
@@ -35,10 +38,31 @@ public class SimpleGazeControl : MonoBehaviour {
                 objectBeingLookAt = hitInfo.collider.gameObject;
                 Debug.Log("step 2");
                 if (hitInfo.collider.tag == "GazeTeleport")
-                {
-                    Debug.Log("step 3");
+				{
                     if (gazeTimer > 0f)//david changed
                     {
+						var teleportObject = GameObject.Find ("Teleporters");
+						var Textobjects = GameObject.Find ("Textobjects");
+						if (teleportObject) {
+							foreach (Transform x in teleportObject.transform) {
+								x.gameObject.SetActive (false);
+							}
+							foreach (Transform x in Textobjects.transform) {
+								x.gameObject.SetActive (false);
+							}
+							++wavepointIndex;
+							foreach (Transform x in teleportObject.transform) {
+								if (x.gameObject.name == "PlaceholderGazeTeleport_WP_" + wavepointIndex)
+									x.gameObject.SetActive (true);
+							}
+							foreach (Transform x in Textobjects.transform) {
+								if (x.gameObject.name == "3DText" + (wavepointIndex - 1)) {
+									Debug.Log ("3DText" + wavepointIndex);
+									x.gameObject.SetActive (true);
+								}
+							}
+						}
+			
                         sfx_source.Play();
                         currentLocation = hitInfo.collider.gameObject;
                         //transform.position = hitInfo.collider.transform.position - head.transform.localPosition;
