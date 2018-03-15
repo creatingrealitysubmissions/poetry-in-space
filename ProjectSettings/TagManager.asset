@@ -8,6 +8,7 @@ TagManager:
   - path
   - pickup
   - Planet
+  - wavepoint
   layers:
   - Default
   - TransparentFX
